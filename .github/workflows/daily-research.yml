@@ -1,9 +1,12 @@
 name: Daily AI Research
 
+# STAND-BY 2026-04-21: cron schedule removed because Sebastian prefers to wait
+# for claude.ai scheduled agents to support WebFetch (see trig_011kNM3YzqXqjNwmDvd7Vozy,
+# disabled). Workflow still runnable via `workflow_dispatch` if someone wants to
+# re-activate manually. To re-enable daily runs, uncomment the schedule block.
 on:
-  schedule:
-    # 13:30 UTC = 8:30 AM Bogota, Mon-Fri
-    - cron: '30 13 * * 1-5'
+  # schedule:
+  #   - cron: '30 13 * * 1-5'  # 8:30 AM Bogota, Mon-Fri
   workflow_dispatch: {}
 
 permissions:
