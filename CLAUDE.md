@@ -27,18 +27,40 @@
 - When I ask you to "audit" or "lint", review the wiki for inconsistencies,
   broken links, gaps, and suggest improvements.
 
-## Daily Research (Scheduled Agent)
+## Daily Research (GitHub Action)
 
-- Un agente programado corre lun-vie y hace research diario de IA a partir
-  de fuentes curadas por Sebastian.
-- Lee `.claude/research-brief.md` para las reglas de filtrado, clasificacion
-  y formato de output.
-- Lee `sources/news-sources.md` y `sources/educational-sources.md` para saber
-  que URLs consultar. No hace WebSearch libre — solo WebFetch sobre esas URLs.
-- Escribe el dump crudo del dia en `raw/daily/YYYY-MM-DD.md`.
-- Compila articulos a `wiki/ai-news/` (noticias) y `wiki/ia-para-empresas/`
-  (contenido educativo practico para duenos de negocio).
-- `wiki/ai/` es foundational knowledge — cross-linkear hacia alli con
-  `[[../ai/...]]` cuando aplique, pero NO anadir contenido nuevo alli.
+Un workflow de GitHub Actions corre lun-vie a las 13:30 UTC (8:30am Bogota)
+y hace research diario de IA a partir de fuentes curadas.
+
+**Arquitectura:**
+- Workflow: `.github/workflows/daily-research.yml` (cron en GH infra)
+- Script: `scripts/daily_research.py` (Python: fetch + filter + dedup + Claude API)
+- Requiere secret `ANTHROPIC_API_KEY` en repo settings
+
+**Flujo:**
+1. Lee URLs desde `sources/news-sources.md` y `sources/educational-sources.md`
+   (ignora comentarios HTML).
+2. Fetch via `feedparser` (RSS/Atom) con user-agent propio.
+3. Filtra por fecha (ultimas 48h) y dedup contra `raw/daily/*.md` de los
+   ultimos 7 dias.
+4. Llama a Claude UNA VEZ con todos los items: clasifica (news/educational/skip),
+   genera titulo, slug, bullets, angulo para negocio, y articulo wiki completo.
+5. Escribe articulos en `wiki/ai-news/` o `wiki/ia-para-empresas/`.
+6. Actualiza `_index.md` de cada seccion con los nuevos articulos.
+7. Escribe `raw/daily/YYYY-MM-DD.md` con resumen y top-3 para LinkedIn.
+8. Commit + push con el `GITHUB_TOKEN` built-in de GH Actions.
+
+**Reglas:**
+- `wiki/ai/` es foundational knowledge — el script NO lo toca. Los articulos
+  nuevos solo cross-linkean hacia alli con `[[../ai/...]]` cuando aplique.
+- `.claude/research-brief.md` es el spec vigente (audiencia, criterios de
+  clasificacion, formato de articulos). El prompt del script lo refleja.
 - El proposito ultimo del material es alimentar posts de LinkedIn de
   Growth para Profesionales.
+
+**Trigger manual:** via GH UI (`Actions` tab → `Daily AI Research` → `Run workflow`)
+o via `gh workflow run daily-research.yml`.
+
+**Sistema legacy (deshabilitado):** habia un scheduled agent en claude.ai
+(`trig_011kNM3YzqXqjNwmDvd7Vozy`) que se descartó porque el entorno remoto
+bloqueaba WebFetch a nivel de red. Queda deshabilitado como historia.
