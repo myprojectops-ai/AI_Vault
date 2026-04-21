@@ -18,8 +18,8 @@ Anadir fuentes nuevas simplemente anade una linea mas a la lista correspondiente
 <!-- - [Google DeepMind Blog](https://deepmind.google/discover/blog/) -->
 
 ## Medios / Press
-- [TechCrunch AI](https://techcrunch.com/category/artificial-intelligence/) — Cobertura diaria de AI news (lanzamientos, startups, movimientos de mercado)
-<!-- - [The Verge AI](https://www.theverge.com/ai-artificial-intelligence) -->
+- [TechCrunch AI (RSS)](https://techcrunch.com/category/artificial-intelligence/feed/) — Cobertura diaria de AI news via RSS (lanzamientos, startups, movimientos de mercado)
+<!-- - [The Verge AI](https://www.theverge.com/rss/index.xml) -->
 
 ## Otras
 <!-- (cualquier otra fuente de news que quieras agregar) -->

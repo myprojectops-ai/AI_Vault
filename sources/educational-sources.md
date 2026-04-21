@@ -6,7 +6,7 @@ El agente investigador extrae de aqui contenido para `wiki/ia-para-empresas/`.
 Formato: `- [Nombre](URL) — descripcion corta`
 
 ## Newsletters
-- [Claude Code for Non-Coders](https://claudecodefornoncoders.substack.com/archive) — Como usar Claude Code sin ser programador, enfocado en no-tecnicos
+- [Claude Code for Non-Coders (RSS)](https://claudecodefornoncoders.substack.com/feed) — Como usar Claude Code sin ser programador, enfocado en no-tecnicos (via RSS)
 <!-- - [Superhuman](https://www.joinsuperhuman.ai/) — AI tools para productividad -->
 <!-- - [AI for Work](https://www.aiforwork.co/) -->
 
