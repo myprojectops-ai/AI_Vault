@@ -5,21 +5,16 @@ El agente investigador extrae de aqui contenido para `wiki/ia-para-empresas/`.
 
 Formato: `- [Nombre](URL) — descripcion corta`
 
+## Blogs / Tutoriales practicos
+- [Simon Willison's Weblog (Atom)](https://simonwillison.net/atom/everything/) — Cubre tutorials, prompts y ejemplos practicos de uso de LLMs. Tambien esta en news-sources.md; el agente clasifica cada item individualmente.
+
 ## Newsletters
-- [Claude Code for Non-Coders (RSS)](https://claudecodefornoncoders.substack.com/feed) — Como usar Claude Code sin ser programador, enfocado en no-tecnicos (via RSS)
-<!-- - [Superhuman](https://www.joinsuperhuman.ai/) — AI tools para productividad -->
-<!-- - [AI for Work](https://www.aiforwork.co/) -->
+<!-- Substack feeds historicamente dan 403 con WebFetch. Si encuentras una educacional que funcione, anadela aqui. -->
 
-## Creadores / Blogs practicos
-<!-- - [Zapier Blog — AI category](https://zapier.com/blog/categories/ai/) -->
-<!-- - (blogs de practitioners con tutoriales paso a paso) -->
+## Comunidades / Directorios
+<!-- - [There's An AI For That](https://theresanaiforthat.com/) — probar -->
+<!-- - [Futurepedia](https://www.futurepedia.io/) — probar -->
 
-## YouTube / Podcast (transcripts o paginas con notas)
-<!-- - (canales con breakdowns practicos de como implementar IA) -->
-
-## Comunidades / Directories de tools
-<!-- - [There's An AI For That](https://theresanaiforthat.com/) -->
-<!-- - [Futurepedia](https://www.futurepedia.io/) -->
-
-## Otras
-<!-- (cualquier fuente que ensene COMO usar IA en empresas, no solo que anuncie que existe) -->
+## Notas
+- Esta seccion esta basica por ahora. La clasificacion del agente (news vs educational) se hace por item individualmente via reglas en `.claude/research-brief.md`, no por archivo de origen. Asi que items educativos que aparezcan en fuentes de news-sources.md tambien van a parar a wiki/ia-para-empresas/.
+- Prioridad: encontrar blogs/newsletters practicos que no esten protegidos por Cloudflare/Substack bot-block.
